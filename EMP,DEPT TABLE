@@ -24,52 +24,90 @@ insert into emp values(7844, 'TURNER', 'SALESMAN', 7698, to_date('8-9-1981','dd-
 insert into emp values(7876, 'ADAMS', 'CLERK', 7788, to_date('13-7-1987', 'dd-mm-yyyy'), 1100, null, 20);
 insert into emp values(7900, 'JAMES', 'CLERK', 7698, to_date('3-12-1981','dd-mm-yyyy'), 950, null, 30);
 insert into emp values(7934, 'MILLER', 'CLERK', 7782, to_date('23-1-1982','dd-mm-yyyy'),1300, null, 10);
-Select*from dept
-;
-select*from emp
-;
-select*from emp where deptno=10
-;
-select*from emp where deptno<>30
-;
-select count(*) from emp 
-;
-select * from emp order by sal desc
-;
-select * 
+Select*from dept;
+
+1)--select*from emp;
+
+2)--select*from emp where deptno=10;
+
+3)--select*from emp where deptno<>30;
+
+4)--select count(*) from emp ;
+
+5)--select * from emp order by sal desc;
+
+6)--select * 
 from emp 
-where ROWNUM<=5
-;
-select * 
+where ROWNUM<=5;
+
+7)--select * 
 from emp 
-order by deptno asc,sal desc
-;
-select * 
+order by deptno asc,sal desc;
+
+10)--select * 
 from emp 
 where MGR in(7698, 7566) 
- and sal>1500
-;
-select * 
+ and sal>1500;
+
+11)--select * 
 from emp 
-where sal<3000
-;
-select distinct job 
+where sal<3000;
+
+14)--select distinct job 
+from emp;
+
+
+24)--select max(sal)
+from emp;
+
+22)--select *
 from emp
-;
-select max(sal) 
+where deptno not in(10,20,40);
+
+20)--select ename
 from emp
-;
-select max(sal)
---from emp;
---select *
---from emp
---where deptno not in(10,20,40);
---select ename
---from emp
---where length(ename)=5;
---select ename,comm
---from emp
---where comm=(select max(comm)from emp);
---delete from emp
---where deptno in(10,20);
+where length(ename)=5;
+
+42)--select ename,comm
+from emp
+where comm=(select max(comm)from emp);
+
+45)--delete from emp
+where deptno in(10,20);
+
+26)--select ename
+from emp
+where ename like '_L%';
+
+25)--SELECT avg(sal) as average_salary
+from emp
+where job='SALESMAN';
+
+28)--select deptno
+from emp
+group by deptno
+having count(empno)=3;
+
+29)--select deptno,sum(sal) as total_salary
+from emp
+group by deptno;
+
+30)--select deptno,min(sal) as min_salary,max(sal) as max_salary
+from emp
+group by deptno;
+
+31)--select e.ename,e.empno,d.dname,d.loc
+from emp e
+join dept d on e.deptno=d.deptno;
+
+35)--select ename||' belongs to '||deptno as description
+from emp
+
+32)--select dept.deptno
+from emp right join dept
+on emp.deptno=dept.deptno
+group by dept.deptno
+having count(empno)=0;
+
+
 
