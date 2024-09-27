@@ -56,6 +56,22 @@ where sal<3000;
 14)--select distinct job 
 from emp;
 
+16)select ename
+from emp
+where comm is NOT NULL;
+
+18)select e.ename as employee,m.ename as manager
+from emp e
+left join
+emp m on e.mgr=m.empno;
+
+19)select e.ename,e.deptno
+from emp e
+where e.sal>(select avg(sal) from emp where deptno=e.deptno);
+
+23)select *
+from emp
+where job!='PRESIDENT'and job!='MANAGER';
 
 24)--select max(sal)
 from emp;
@@ -108,6 +124,14 @@ from emp right join dept
 on emp.deptno=dept.deptno
 group by dept.deptno
 having count(empno)=0;
+
+33)select *
+from emp
+where job!='PRESIDENT'and job!='MANAGER';
+
+34)select *
+from emp
+where job!='PRESIDENT'and job!='MANAGER';
 
 
 
